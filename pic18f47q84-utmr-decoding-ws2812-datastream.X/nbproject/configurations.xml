@@ -82,10 +82,10 @@
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.20</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.7.135"/>
+        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.5.124"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -369,10 +369,10 @@
         <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.20</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.7.135"/>
+        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.5.124"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
