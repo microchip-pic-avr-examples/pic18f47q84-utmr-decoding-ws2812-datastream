@@ -2,29 +2,27 @@
     "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
-        "metaDataVersion": "1.1.0",
-        "name": "com.microchip.mcu8.mplabx.project.",
-        "version": " ",
-        "displayName": "  ",
-        "projectName": "",
-        "shortDescription": "",
+        "metaDataVersion": "1.0.0",
+        "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-audio-record-playback",
+        "version": "1.0.0",
+        "displayName": "PIC18F47Q84 Decoding WS2812 Datastream using UTMR, SPI and Other CIPs",
+        "projectName": "pic18f47q84-utmr-decoding-ws2812-datastream",
+        "shortDescription": "New UTMR timer module is used to decode a pulse-width modulated WS2812 signal",
         "ide": {
-            "name": "",
-            "semverRange": ""
+            "name": "MPLABX",
+            "semverRange": ">=5.40.0"
         },
-        "compiler": [
-			{
-				"name": "",
-				"semverRange": ""
-			}
-		],
+        "compiler": {
+            "name": "XC8",
+            "semverRange": "^2.20.0"
+        },
         "dfp": {
-            "name": "",
-            "semverRange": ""
+            "name": "PIC18F-Q_DFP",
+            "semverRange": "^1.7.135"
         },
         "configurator": {
-            "name": "",
-            "semverRange": ""
+            "name": "MCC",
+            "semverRange": ">=3.95.0"
         },
         "device": {
             "metaDataVersion": "1.0.0",
@@ -32,37 +30,57 @@
             "content": {
                 "metaDataVersion": "1.0.0",
                 "category": "com.microchip.device",
-                "name": "",
+                "name": "PIC18F47Q84",
                 "versionRange": "*"
             }
         },
-        "author": "",
+        "author": "Microchip",
         "subcategories": [
-            "",
+            "MCC",
             [
-               "Peripherals", ""
+               "Peripherals", "TMR0"
             ],
             [
-               "Peripherals", ""
-            ]            			
+               "Peripherals", "PWM"
+            ],
+            [
+               "Peripherals", "CLC"
+            ],
+			[
+               "Peripherals", "SPI"
+            ],
+			[
+               "Peripherals", "DMA"
+            ],
+			[
+               "Peripherals", "UTMR"
+            ],
+			[
+               "Peripherals", "CCP"
+            ],
+			[
+               "Peripherals", "TMR1"
+            ],
+			[
+               "Peripherals", "UART"
+            ]
         ],
         "peripherals": [
-            "",""
+            "TMR0","PWM","CLC","SPI","DMA","UTMR","CCP","TMR1","UART"
         ],
         "keywords": [
-            "",
-            ""			
-        ],
-		"additionalData": {
-			"longDescription": {
-				"metaDataVersion": "1.0.0",
-				"category": "com.microchip.portal.fileRef",
-				"content": {
-					"metaDataVersion": "1.0.0",
-					"fileName": "./README.md",
-					"mimeType": "text/markdown"
-				}
-			}
-		}
-	}
+            "MCC","ws2812","utmr","universal timer","rgb click"
+        ]
+    },
+    "additionalData": {
+        "longDescription": {
+            "metaDataVersion": "1.0.0",
+            "category": "com.microchip.portal.fileRef",
+            "content": {
+                "metaDataVersion": "1.0.0",
+                "fileName": "./README.md",
+                "mimeType": "text/markdown"
+            }
+        }
+    }
 }
