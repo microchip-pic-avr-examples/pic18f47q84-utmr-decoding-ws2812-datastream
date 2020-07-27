@@ -12,13 +12,15 @@
             "name": "MPLABX",
             "semverRange": ">=5.40.0"
         },
-        "compiler": {
+        "compiler": [
+            {
             "name": "XC8",
             "semverRange": "^2.20.0"
-        },
+        }
+    ],
         "dfp": {
             "name": "PIC18F-Q_DFP",
-            "semverRange": "^1.7.135"
+            "semverRange": "^1.5.124"
         },
         "configurator": {
             "name": "MCC",
