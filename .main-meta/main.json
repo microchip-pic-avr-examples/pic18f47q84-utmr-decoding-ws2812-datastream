@@ -3,7 +3,7 @@
     "category": "com.microchip.ide.project",
     "content": {
         "metaDataVersion": "1.0.0",
-        "name": "com.microchip.mcu8.mplabx.project.pic18f57q43-audio-record-playback",
+        "name": "com.microchip.mcu8.mplabx.project.pic18f47q84-utmr-decoding-ws2812-datastream",
         "version": "1.0.0",
         "displayName": "PIC18F47Q84 Decoding WS2812 Datastream using UTMR, SPI and Other CIPs",
         "projectName": "pic18f47q84-utmr-decoding-ws2812-datastream",
