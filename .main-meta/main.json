@@ -72,8 +72,7 @@
         ],
         "keywords": [
             "MCC","ws2812","utmr","universal timer","rgb click"
-        ]
-    },
+        ],
     "additionalData": {
         "longDescription": {
             "metaDataVersion": "1.0.0",
