@@ -7,7 +7,7 @@
         "version": "1.0.0",
         "displayName": "PIC18F47Q84 Decoding WS2812 Datastream using UTMR, SPI and Other CIPs",
         "projectName": "pic18f47q84-utmr-decoding-ws2812-datastream",
-        "shortDescription": "New UTMR timer module is used to decode a pulse-width modulated WS2812 signal",
+        "shortDescription": "New Universal Timer (UTMR) module is used to decode a pulse-width modulated WS2812 signal",
         "ide": {
             "name": "MPLABX",
             "semverRange": ">=5.40.0"
