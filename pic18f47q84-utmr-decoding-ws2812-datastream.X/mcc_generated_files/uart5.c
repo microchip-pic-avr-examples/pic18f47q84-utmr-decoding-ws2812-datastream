@@ -167,7 +167,7 @@ void UART5_Write(uint8_t txData)
     U5TXB = txData;    // Write the data byte to the USART.
 }
 
-char getch(void)
+/*char getch(void)
 {
     return UART5_Read();
 }
@@ -176,7 +176,7 @@ void putch(char txData)
 {
     UART5_Write(txData);
 }
-
+*/
 
 
 

@@ -2,7 +2,7 @@
     "metaDataVersion": "1.0.0",
     "category": "com.microchip.ide.project",
     "content": {
-        "metaDataVersion": "1.1.0",
+        "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f47q84-utmr-decoding-ws2812-datastream",
         "version": "1.0.2",
         "displayName": "PIC18F47Q84 Decoding WS2812 Datastream using UTMR, SPI and Other CIPs",
@@ -37,45 +37,7 @@
             }
         },
         "author": "Microchip",
-        "subcategories": [
-            "MCC",
-            [
-                "Peripherals",
-                "TMR0"
-            ],
-            [
-                "Peripherals",
-                "PWM"
-            ],
-            [
-                "Peripherals",
-                "CLC"
-            ],
-            [
-                "Peripherals",
-                "SPI"
-            ],
-            [
-                "Peripherals",
-                "DMA"
-            ],
-            [
-                "Peripherals",
-                "UTMR"
-            ],
-            [
-                "Peripherals",
-                "CCP"
-            ],
-            [
-                "Peripherals",
-                "TMR1"
-            ],
-            [
-                "Peripherals",
-                "UART"
-            ]
-        ],
+        
         "peripherals": [
             "TMR0",
             "PWM",
