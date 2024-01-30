@@ -51,10 +51,9 @@
         ],
         "keywords": [
             "MCC",
-            "ws2812",
-            "utmr",
-            "universal timer",
-            "rgb click"
+            "WS2812/11",
+            "UTMR",
+            "Universal Timer"
         ],
         "additionalData": {
             "longDescription": {
