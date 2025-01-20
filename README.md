@@ -13,11 +13,10 @@ This demo is based on the PIC18F47Q84 Curiosity HPC platform which illustrates h
 
 ## Software Used
 
-- MPLAB® X IDE 5.40 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-- MPLAB® XC8 2.20 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-- MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs (1.81.3) or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-- Microchip PIC18F-Q Series Device Support (1.7.135) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) 
+- MPLAB® X IDE 6.20 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
+- MPLAB® XC8 3.00 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
+- MPLAB® Code Configurator (MCC) 5.7.1 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
+- Microchip PIC18F-Q Series Device Support (1.23.425) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) 
 
 ## Hardware Used
 
@@ -63,6 +62,9 @@ Refer to "How To Use Neopixels With PIC® Microcontrollers" [(YouTube)](https://
 - DMA2 - stores output of SPI2 (decoded color) into RAM
 - CCP1 - captures low level reset time in between WS2812 packets
 - TMR1 - generates time base for CCP1
+- TMR2 - used in conjunction with TMR2 and CLC4 to count the number of LEDs in each WS2812 packet
+- TMR4 - counts number of edges in WS2812 packet
+- CLC4 - routs the output of TMR4 to the input of TMR2
 - UART5 - used for printing datastream
 
 ![WS2812 Datastream Decoding](images/ws2812-datastream-decoding.png)
@@ -108,8 +110,6 @@ SPI2 is configured to operate in Slave receive-only mode. The output of the puls
 
 ![Decoded Color Array](images/decodedColorArray.png)
 
-The SPI2RX interrupt is enabled. The ISR is triggered upon a successful reception of a byte. A small code is written inside this ISR to keep track of LED counts (every 3 bytes received = 1 LED GRB value). After each LED value (3 bytes) is received, the CCP1 is enabled to measure the reset time (described below).
-
 The waveform below shows the different signals discussed above.
 ![Pulse Differentiator and Shift Register Waveform](images/utmr-clc-spi-waveform.png)
 
@@ -132,6 +132,30 @@ TMR1 Settings:
 
 The above setting allows the CCP to capture low pulse times. In the CCP1 ISR, if the low pulse time is greater than 50 us, it qualifies as a valid reset time for WS2812 signal. If the low pulse time is less than 50 us, the captured value is discarded. TMR1IF flag is also checked for TMR1 overflows (which also qualifies as a valid reset time). This data is compiled and stored in the sequenceTiming array to be used by a parser to print the datastream sequence through UART5.
 
+#### TMR2 and TMR4 Setupt to Detect Number of LEDs ####
+
+TMR2 and TMR4 and used together to count the number of LEDs in each WS2812 packet. Each WS2812 LED takes three bytes, or 24 bits of data. TMR4 counts 24 edges of the WS2812 signal. The output of TMR4 is routed to the input of TMR2 using CLC4. TMR2 counts the edges provided by TMR4 which records the number of WS2812 LEDs that are addressed in each packet. 
+
+TMR2 Settings:
+- Control Mode = Roll Over Pulse
+- Start/Reset Option = Software Control
+- Clock Source = CLC4_OUT
+- Clock Freqency = 1 kHz (Actual frequency is not important since TMR2 is used as a counter)
+- Polarity = Rising Edge
+- Prescaler = 1:1
+- Postscaler = 1:1
+- Requested Period = 256 ms (This value is set based on the Clock Frequency setting to get the maximum roll over value) 
+
+TMR4 Settings:
+- Control Mode = Roll Over Pulse
+- Start/Reset Option = Software Control
+- Clock Source = T4CKIPPS
+- Clock Frequency = 1 kHz (Actual frequency is not important since TMR4 is used as a counter)
+- Polarity = Rising Edge
+- Prescaler = 1:1
+- Postscaler = 1:1
+- Requested Period = 24 ms (Based on Clock Frequency option to count 24 edges)
+ 
 ![Sequence Timing Array](images/sequenceTimingArray.png)
 
 ## Operation
