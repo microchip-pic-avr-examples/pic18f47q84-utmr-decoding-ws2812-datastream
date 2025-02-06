@@ -161,7 +161,7 @@ TMR4 Settings:
 ## Operation
 
 Steps to run the application:
-- As soon as the board powers up, WS2812 generation begins and the 4x4 RGB Click will start to light up and display patterns
+- When the board powers up, WS2812 generation begins and the 4x4 RGB Click will start to light up and display patterns
 - Press S2 switch on the board to begin data acquisition. The software starts to capture and process WS2812 datastream as it arrives. The capture stops after two seconds or when it runs out of memory (1365 LED color values, 4095 bytes), whichever occurs first.
 - The datastream is printed via UART5 on to the terminal
 - Press the S2 switch again to begin another acquisition
